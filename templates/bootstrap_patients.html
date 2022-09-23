@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title class="title ">Patient List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Patient Table (Bootstrap)</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="navbarsExample02">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Bootstrap</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">No Bootstrap</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+    <div>   
+            <table class="table table-secondary table-striped table-hover table-sm">
+                <tr>
+                    <th>Medical Record Number (MRN)</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Date of Birth</th>
+                    <th> Street</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip Code</th>
+                    <th>Insurance</th>
+                    <th>Diabetic Status</th>
+
+                    <!-- For loop to iterate through the list of patients -->
+                    {% for patient in list_patients %}
+                        <tr>
+                            <td>{{ patient.mrn }}</td>
+                            <td>{{ patient.firstname }}</td>
+                            <td>{{ patient.lastname }}</td>
+                            <td>{{ patient.dob }}</td>
+                            <td>{{ patient.address_street }}</td>
+                            <td>{{ patient.address_city }}</td>
+                            <td>{{ patient.address_state }}</td>
+                            <td>{{ patient.address_zip }}</td>
+                            <td>{{ patient.insurance }}</td>
+                            <td>{{ patient.diabetic }}</td>
+                        </tr>
+                    {% endfor %}
+                </tr>
+            </table>
+
+    </div>
+
+</body>
+</html>
